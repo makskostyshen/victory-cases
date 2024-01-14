@@ -9,6 +9,7 @@ public class SpringWebConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+        registry.addResourceHandler("/assets/**")
+                .addResourceLocations("classpath:/assets/");
     }
 }
