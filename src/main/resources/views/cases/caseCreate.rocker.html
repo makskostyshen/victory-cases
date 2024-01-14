@@ -1,0 +1,12 @@
+@import com.makskostyshen.victorycases.web.dto.CaseDetailsDto;
+
+@views.cases.caseDetailsBase.template(CaseDetailsDto.builder().build(), "Нова справа", "/cases/create") -> {
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href='/cases'">Назад</button>
+    </div>
+    <div class="col-md-6 text-right">
+        <input type="submit" class="btn btn-primary btn-block" value="Створити">
+    </div>
+</div>
+}

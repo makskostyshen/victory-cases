@@ -1,0 +1,35 @@
+@import com.makskostyshen.victorycases.web.dto.CaseDto;
+@import java.util.List;
+
+@args(List<CaseDto> cases)
+
+@views.mainScript.template() -> {
+<div class="card-body">
+    <div class="d-flex justify-content-between align-items-center mb-2 mt-2 px-1">
+        <h5 class="card-title">Справи</h5>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/cases/create'">Нова справа</button>
+    </div>
+
+    <!-- Bordered Table -->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Клієнт</th>
+            <th scope="col">Опонент</th>
+            <th scope="col">Предмет спору</th>
+            <th scope="col">Номер Справи</th>
+            <th scope="col">Проведена робота</th>
+            <th scope="col">Дата і час</th>
+            <th scope="col">Примітка</th>
+            <th scope="col"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (int i = 0; i < cases.size(); i++) {
+            @views.cases.caseRow.template(i+1, cases.get(i))
+        }
+        </tbody>
+    </table>
+</div>
+}

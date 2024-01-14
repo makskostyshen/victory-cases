@@ -1,0 +1,27 @@
+@import com.makskostyshen.victorycases.web.dto.CaseDetailsDto;
+
+@args(CaseDetailsDto details)
+
+@views.mainScript.template() -> {
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 flex-column align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="px-2 mt-4 mb-4">
+                        <p class="card-title text-center">Ви підтверджуєте видалення справи @details.getNumber()?</p>
+                    </div>
+                    <form class="row mb-1" action="/cases/delete/@details.getId()" method="post">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/cases'">Ні</button>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button type="submit" id="confirmDeleteButtonId" class="btn btn-secondary btn-block">Так</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

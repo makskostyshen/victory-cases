@@ -1,0 +1,14 @@
+@import com.makskostyshen.victorycases.web.dto.CaseDetailsDto;
+
+@args(CaseDetailsDto details)
+
+@views.cases.caseDetailsBase.template(details, "Перегляд справи", "/cases/details") -> {
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href='/cases'">Назад</button>
+    </div>
+    <div class="col-md-6 text-right">
+        <input type="submit" class="btn btn-primary btn-block" value="Зберегти">
+    </div>
+</div>
+}

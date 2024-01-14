@@ -1,4 +1,4 @@
-package com.makskosyshen.victorycases;
+package com.makskostyshen.victorycases;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,24 @@
+@views.mainScript.template() -> {
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 flex-column align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="px-2 mt-4 mb-4">
+                        <h5 class="card-title text-center">Сталася помилка</h5>
+                        <div class="mb-2 text-center">
+                            Рекомендовано закрити інші вкладки та перезапустити програму.
+                            Якщо проблема повторюватиметься чи дані виявляться пошкодженими - зверніться до розробників
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/cases'">Ок</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

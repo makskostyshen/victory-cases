@@ -1,0 +1,91 @@
+@import com.makskostyshen.victorycases.web.dto.CaseDetailsDto;
+
+@args(CaseDetailsDto details, String pageTitle, String actionUrl, RockerBody actionButtons)
+
+@views.mainScript.template() -> {
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-2 mt-2 px-1">
+        <h5 class="card-title">@pageTitle</h5>
+    </div>
+    <div class="card">
+        <div class="card-body mt-3">
+            <form action="@actionUrl" method="post">
+                <input type="text" value="@?details.getId()" hidden="" name="id" class="d-none" id="id-input">
+
+                <div class="form-group">
+                    <label for="clientId">Клієнт</label>
+                    <input type="text" id="clientId" name="client" value="@?details.getClient()" class="form-control" required="required">
+                </div>
+
+                <div class="form-group">
+                    <label for="opponentId">Опонент</label>
+                    <input type="text" id="opponentId" name="opponent" value="@?details.getOpponent()" class="form-control" required="required">
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectId">Предмет спору</label>
+                    <input type="text" id="subjectId" name="subject" value="@?details.getSubject()" class="form-control" required="required">
+                </div>
+
+                <div class="form-group">
+                    <label for="priceId">Ціна позову</label>
+                    <input type="text" id="priceId" name="price" value="@?details.getPrice()" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="numberId">Номер Справи</label>
+                    <input type="text" id="numberId" name="number" value="@?details.getNumber()" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="judgeId">Суд / суддя</label>
+                    <input type="text" id="judgeId" name="judge" value="@?details.getJudge()" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="doneWorkId">Проведена робота</label>
+                    <textarea class="form-control" id="doneWorkId" name="doneWork" rows="8">@?details.getDoneWork()</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="currentStageId">Стадія розгляду</label>
+                    <select name="currentStage" id="currentStageId" class="form-select">
+                        <option @("CLAIM".equals(details.getCurrentStage()) ? "selected=''": "") value="CLAIM">Претензія</option>
+                        <option @("FIRST".equals(details.getCurrentStage()) ? "selected=''" : "") value="FIRST">Перша</option>
+                        <option @("CASSATION".equals(details.getCurrentStage()) ? "selected=''": "") value="CASSATION">Касаційна</option>
+                        <option @("APPEAL".equals(details.getCurrentStage()) ? "selected=''" : "") value="APPEAL">Апеляційна</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-2">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-2">
+                            <label for="currentStageDeadlineDateId">Дата</label>
+                            <input type="date" id="currentStageDeadlineDateId" name="currentStageDeadlineDate" value="@?details.getCurrentStageDeadlineDate()" class="form-control">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <label for="currentStageDeadlineTimeId">Час</label>
+                            <input type="time" id="currentStageDeadlineTimeId" name="currentStageDeadlineTime" value="@?details.getCurrentStageDeadlineTime()" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="orderStatusId">Отримано наказ</label>
+                    <select name="orderStatus" id="orderStatusId" class="form-select">
+                        <option @("NOT_RECEIVED".equals(details.getOrderStatus()) ? "selected=''": "") value="NOT_RECEIVED">Ні</option>
+                        <option @("RECEIVED".equals(details.getOrderStatus()) ? "selected=''" : "") value="RECEIVED">Так</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="noteId">Примітка</label>
+                    <input type="text" id="noteId" name="note" value="@?details.getNote()" class="form-control">
+                </div>
+                @actionButtons
+            </form>
+        </div>
+    </div>
+</div>
+}
