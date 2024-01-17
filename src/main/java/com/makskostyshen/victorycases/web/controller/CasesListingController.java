@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cases")
+@RequestMapping(CasesListingController.PATH)
 @RequiredArgsConstructor
 public class CasesListingController {
+    static final String PATH = "/cases";
 
     private final CaseRepository repository;
     @GetMapping

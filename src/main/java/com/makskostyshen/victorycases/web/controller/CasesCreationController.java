@@ -24,6 +24,6 @@ public class CasesCreationController {
     @PostMapping
     public String post(final Model model, final CaseDetailsDto caseDetailsDto) {
         repository.save(WebLayerMapper.I.map(caseDetailsDto));
-        return "redirect:" + "/cases";
+        return "redirect:" + CasesListingController.PATH;
     }
 }

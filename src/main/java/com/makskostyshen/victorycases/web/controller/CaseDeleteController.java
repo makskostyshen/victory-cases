@@ -29,6 +29,6 @@ public class CaseDeleteController {
     @PostMapping("/{id}")
     public String post(final Model model, @PathVariable final String id) {
         repository.deleteById(id);
-        return "redirect:" + "/cases";
+        return "redirect:" + CasesListingController.PATH;
     }
 }
