@@ -10,6 +10,6 @@ public class IndexController {
 
     @GetMapping
     public String get() {
-        return "redirect:" + "/cases";
+        return "redirect:" + CasesListingController.PATH;
     }
 }
